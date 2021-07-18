@@ -18,7 +18,15 @@ const bookSchema = new Schema({
 
     releaseDate: {
         type: Number
-    }
+    },
+
+    genre: [
+        {
+        type: Schema.Types.ObjectId,
+        ref:"Genre"
+        },
+    ]
+    
 });
 
 

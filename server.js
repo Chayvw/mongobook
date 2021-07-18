@@ -1,10 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
-// const Pizza = require("./models/testModel");
-
-// const PizzaController = require("./controllers/pizzaControllers");
-
+const authorController = require("./controllers/authorController");
+const genreController = require("./controllers/genreController")
 
 const PORT = process.env.PORT || 8080;
 
@@ -30,7 +28,8 @@ app.get("/api/config", (req, res)=>{
         });
 });
 
-// app.use(PizzaController);
+app.use(authorController);
+app.use(genreController);
 
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);
