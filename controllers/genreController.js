@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
-
+// READ
 router.get("/api/genres", (req, res)=>{
     db.Genre.find({}).then((foundGenres) =>{
         res.json({
@@ -12,7 +12,7 @@ router.get("/api/genres", (req, res)=>{
     });
 });
 
-
+//CREATE
 router.post("/api/genres", (req, res)=>{
     if(!req.body.name || !req.body.name.trim().length){
         return res.status(400).json({
