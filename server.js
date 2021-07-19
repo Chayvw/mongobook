@@ -1,9 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
+// const validator = require("validator");
 
 const authorController = require("./controllers/authorController");
 const genreController = require("./controllers/genreController");
 const userController = require("./controllers/userController");
+const authController = require("./controllers/authController");
 
 const PORT = process.env.PORT || 8080;
 
@@ -32,6 +34,7 @@ app.get("/api/config", (req, res)=>{
 app.use(authorController);
 app.use(genreController);
 app.use(userController);
+app.use(authController);
 
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);

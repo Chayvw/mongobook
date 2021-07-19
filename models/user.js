@@ -31,7 +31,7 @@ const userSchema = new Schema({
     passwordConfirm: {
         type: String,
         trim: true,
-        required:true
+        required:false
     },
 
     

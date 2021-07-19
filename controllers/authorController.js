@@ -7,7 +7,7 @@ router.get("/api/authors", (req, res) => {
         res.json({
             error: false,
             data: foundPizzas,
-            message: "Retrieved All Pizzas "
+            message: "Retrieved All Authors in your Database"
         });
     });
 });
