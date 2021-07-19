@@ -6,6 +6,7 @@ const authorController = require("./controllers/authorController");
 const genreController = require("./controllers/genreController");
 const userController = require("./controllers/userController");
 const authController = require("./controllers/authController");
+const loginController = require("./controllers/loginController");
 
 const PORT = process.env.PORT || 8080;
 
@@ -35,6 +36,7 @@ app.use(authorController);
 app.use(genreController);
 app.use(userController);
 app.use(authController);
+app.use(loginController);
 
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);

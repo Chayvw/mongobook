@@ -36,6 +36,26 @@ router.post("/api/genres", (req, res)=>{
         })
     })
 });
+// DELETE
+router.delete("/api/genres/:id", (req, res) => {
+    // console.log(req.params.id);
+    db.Genre.findByIdAndDelete(req.params.id)
+        .then((result) => {
+            res.json({
+                error: false,
+                data: result,
+                message: "Successfully deleted a Genre",
+            });
+        }).catch((err) => {
+            // if it is an error than .catch will give you a 500 status error 
+            res.status(500).json({
+                error: true,
+                data: null,
+                message: "Unable to delete genre"
+            })
+
+        })
+});
 
 
 

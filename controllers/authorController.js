@@ -4,10 +4,10 @@ const db = require("../models");
 
 //READ
 router.get("/api/authors", (req, res) => {
-    db.Book.find({}).populate("genre").then((foundPizzas) => {
+    db.Book.find({}).populate("genre").then((foundAuthors) => {
         res.json({
             error: false,
-            data: foundPizzas,
+            data: foundAuthors,
             message: "Retrieved All Authors in your Database"
         });
     });

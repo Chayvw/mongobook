@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
+const jwt = require("jsonwebtoken");
 
 
 
@@ -15,14 +16,11 @@ router.get("/api/user", (req, res)=>{
 });
 
 router.post("/api/user", (req, res) => {
-    // if (!req.body.name || !req.body.name.trim().length) {
-    //     return res.status(400).json({
-    //         error: true,
-    //         data: null,
-    //         message: "Please enter valid information"
-    //     })
-    // }
-    db.User.create(req.body).then((createdUser) => {
+    db.User.create({
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password 
+    }).then((createdUser) => {
         res.json({
             error: false,
             data: createdUser,
