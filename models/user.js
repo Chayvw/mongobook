@@ -31,7 +31,12 @@ const userSchema = new Schema({
     passwordConfirm: {
         type: String,
         trim: true,
-        required:false
+        required:true,
+        // only will work on .create and .save
+        validator: function(el){
+            return el ===this.password
+        },
+        message: "Passwords are not the same"
     },
 
     
